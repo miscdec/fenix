@@ -58,6 +58,29 @@ class SettingsCustomizeTest {
     }
 
     @Test
+    fun setToolbarPositionTest() {
+        homeScreen {
+        }.openThreeDotMenu {
+        }.openSettings {
+        }.openCustomizeSubMenu {
+            verifyToolbarPositionPreference("Bottom")
+            clickTopToolbarToggle()
+            verifyToolbarPositionPreference("Top")
+        }.goBack {
+        }.goBack {
+            verifyToolbarPosition(defaultPosition = false)
+        }.openThreeDotMenu {
+        }.openSettings {
+        }.openCustomizeSubMenu {
+            clickBottomToolbarToggle()
+            verifyToolbarPositionPreference("Bottom")
+        }.goBack {
+        }.goBack {
+            verifyToolbarPosition(defaultPosition = true)
+        }
+    }
+
+    @Test
     fun swipeToolbarGesturePreferenceOffTest() {
         val firstWebPage = TestAssetHelper.getGenericAsset(mockWebServer, 1)
         val secondWebPage = TestAssetHelper.getGenericAsset(mockWebServer, 2)
