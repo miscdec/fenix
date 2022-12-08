@@ -56,6 +56,7 @@ import org.mozilla.fenix.helpers.ext.waitNotNull
 import java.time.LocalDate
 
 class BrowserRobot {
+
     private lateinit var sessionLoadedIdlingResource: SessionLoadedIdlingResource
 
     fun waitForPageToLoad() = progressBar.waitUntilGone(waitingTime)
